@@ -1,4 +1,4 @@
-name: Simple CI Pipeline
+name: Terraform TODOAPP Infra Pipeline
 on: push
 jobs:
   terraform:
@@ -16,6 +16,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./\Terraform_Todo_App_Infra\Todo_Infra\Environment\dev
 
       - name: Terraform Plan
         run: terraform plan
