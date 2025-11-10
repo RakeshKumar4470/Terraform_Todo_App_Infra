@@ -6,9 +6,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
@@ -16,10 +13,10 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./\Terraform_Todo_App_Infra\Todo_Infra\Environment\dev
-
+       
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./\Terraform_Todo_App_Infra\Todo_Infra\Environment\dev
 
 
 
