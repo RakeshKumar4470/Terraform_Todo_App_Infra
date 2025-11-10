@@ -7,13 +7,13 @@ jobs:
 
     steps:
     
-      - name: Setup Terraform
-        working-directory: ./Todo_Infra/Environment/dev
+      - name: Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.5
 
       - name: Terraform Init
+        working-directory: ./Todo_Infra/Environment/dev
         run: terraform init
        
       - name: Terraform Plan
