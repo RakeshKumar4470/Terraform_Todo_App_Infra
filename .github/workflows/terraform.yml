@@ -1,22 +1,24 @@
-name: 'Terraform'
-
+name: Simple CI Pipeline
 on: push
-
 jobs:
   terraform:
-    name: 'Terraforminit'
+    name: Terraform Init
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
-     - name: Terraform Init
-       run: terraform init
-       
-     - name: Checkout
-       uses: actions/checkout@v4
-      
-     - name: Setup Terraform
-       uses: hashicorp/setup-terraform@v1
-  
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan
+
 
 
